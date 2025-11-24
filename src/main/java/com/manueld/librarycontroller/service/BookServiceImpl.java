@@ -14,14 +14,21 @@ public class BookServiceImpl implements BookService {
 
     public BookServiceImpl(BookRepository repository){
         this.repository = repository;
-
     }
 
     @Override
     public Book create(Book b) {
+
+        var tempo = getByIsbn(b.getIsbn());
+        if(tempo != null){
+            throw new IllegalArgumentException("No pueden existir libros con el mismo ISBN");
+        }
+
         if(b.getAuthor()==null){
             b.setAuthor("Desconocido");
         }
+
+        b.setStatus(Status.AVAILABLE);
         repository.add(b);
         return b;
     }
@@ -29,7 +36,6 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Book> getAll() {
         return repository.getAll();
-        
     }
 
     @Override
@@ -80,5 +86,12 @@ public class BookServiceImpl implements BookService {
         var temp = getById(id);
         temp.setStatus(Status.AVAILABLE);
         return temp;
+    }
+
+    private Book getByIsbn(String isbn){
+        return repository.getAll().stream()
+        .filter(b -> b.getIsbn().equals(isbn))
+        .findFirst()
+        .orElse(null);
     }
 }

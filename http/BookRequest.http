@@ -1,0 +1,45 @@
+###
+GET http://localhost:8080/api/libros
+
+###
+POST http://localhost:8080/api/libros
+Content-Type: application/json
+
+{
+    "title" : "Viaje al centro de la tierra",
+    "author" : "Julio Verne",
+    "isbn" : "1234567890123",
+    "genre" : "ACTION"
+}
+
+###
+POST http://localhost:8080/api/libros
+Content-Type: application/json
+
+{
+    "title" : "Mil y una noches",
+    "isbn" : "1234567890124",
+    "genre" : "FICTION"
+}
+
+###
+POST http://localhost:8080/api/libros
+Content-Type: application/json
+
+{
+    "title" : "Mil y una noches",
+    "isbn" : "1234567890123",
+    "genre" : "FICTION"
+}
+###
+PATCH http://localhost:8080/api/libros/devolver/1
+
+###
+PATCH http://localhost:8080/api/libros/prestar/1
+
+###
+GET http://localhost:8080/api/libros/buscar/texto?a
+
+
+
+

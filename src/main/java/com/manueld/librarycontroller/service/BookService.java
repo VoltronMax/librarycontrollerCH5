@@ -6,7 +6,7 @@ import com.manueld.librarycontroller.model.Book;
 
 public interface BookService {
     
-    /**Operaciones CRUD a través de Endpoints REST:
+/**Operaciones CRUD a través de Endpoints REST:
 POST /api/libros: Crear un nuevo libro en el sistema.
 GET /api/libros: Obtener un listado de todos los libros.
 GET /api/libros/{id}: Obtener los detalles de un libro específico por su ID.
@@ -24,4 +24,5 @@ void deleteBook(Long id);
 List<Book>searchByText(String content);
 Book borrowABook(Long id);
 Book returnABook(Long id);
+
 }

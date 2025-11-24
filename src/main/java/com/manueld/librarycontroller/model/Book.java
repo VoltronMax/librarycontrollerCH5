@@ -43,7 +43,6 @@ public class Book {
         this.author = author;
         this.isbn = isbn;
         this.genre = genre;
-        this.status = Status.AVAILABLE;
     }
 
     public Long getId() {
